@@ -1,0 +1,24 @@
+<div class="course-list-container">
+
+
+  <course-component class="card-item"  *ngFor="let course of courses" [course]="course"
+                    (studentAttendancesEvent)="viewStudentAttendances($event)"       (courseAttendancesEvent)="viewCourseAttendances($event)"   (registerEvent) = "registerCourse($event)"  (deleteEvent) = "deleteCourse($event)" (createAttendanceEvent)="createAttendance($event)">
+
+
+
+                    </course-component>
+
+
+
+</div>
+
+
+
+<div class="fab-container">
+  <button mat-flat-button color="primary"  matTooltip="Add new class" *ngIf="isProf" (click)="createCourse()">
+    <i class="material-icons">add</i>
+  </button>
+    <button mat-flat-button color="warn"  matTooltip="Track attendance" *ngIf="!isProf" (click)="trackAttendance()">
+        <i class="material-icons">check</i>
+    </button>
+</div>

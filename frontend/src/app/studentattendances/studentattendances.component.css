@@ -1,0 +1,18 @@
+/* Structure */
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.attendance-spinner{
+
+    display: flex;
+    height: min-content;
+    justify-content: center;
+    align-items: center;
+
+}

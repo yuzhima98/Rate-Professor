@@ -1,0 +1,22 @@
+.course-card {
+  flex: 1;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  -ms-box-flex: 1;
+  -moz-box-flex: 1;
+  padding: 3px 3px 3px 3px;
+  width:350px;
+
+}
+
+.course-image {
+  background-image: url('https://www.assets.cms.vt.edu/images/Standard/Standard_RGB_black.svg');
+  background-size: auto auto;
+}
+
+.mat-card-header {
+  background-color: #BBBBBB;
+  color: white;
+  height: 100%;
+  width: 100%;
+}

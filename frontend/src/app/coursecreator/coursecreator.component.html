@@ -1,0 +1,84 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <mat-card class="registration-card">
+        <mat-card-header>
+
+            <mat-card-title>Create new course</mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
+
+
+            <div class="form-group">
+                <mat-form-field>
+                    <input matInput placeholder="Course number" type="number" formControlName="courseNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.courseNumber.errors }">
+                    <mat-hint *ngIf="submitted && f.courseNumber.errors" >
+                        <mat-hint *ngIf="f.courseNumber.errors.required">courseNumber is required</mat-hint>
+                        <mat-hint *ngIf="f.courseNumber.errors.pattern">courseNumber is using illegal characters.</mat-hint>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field>
+                    <input matInput placeholder="Course Dept Acronym" type="text" formControlName="courseDept" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.courseDept.errors }">
+                    <mat-hint *ngIf="submitted && f.courseDept.errors" >
+                        <mat-hint *ngIf="f.courseDept.errors.required">courseDept is required</mat-hint>
+                        <mat-hint *ngIf="f.courseDept.errors.pattern">courseDept is using illegal characters.</mat-hint>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+
+
+            <div class="form-group">
+                <mat-form-field>
+                    <input matInput [matDatepicker]="startDate" placeholder="Choose the start date" formControlName="startDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.startDate.errors }">
+                    <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                    <mat-datepicker #startDate></mat-datepicker>
+                    <mat-hint *ngIf="submitted && f.startDate.errors" >
+                        <mat-hint *ngIf="f.startDate.errors.required">startDate is required</mat-hint>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field>
+                    <input matInput [matDatepicker]="endDate" placeholder="Choose the end date" formControlName="endDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.endDate.errors }">
+                    <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                    <mat-datepicker #endDate></mat-datepicker>
+                    <mat-hint *ngIf="submitted && f.endDate.errors" >
+                        <mat-hint *ngIf="f.endDate.errors.required">endDate is required</mat-hint>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field>
+                    <input matInput placeholder="Location" type="text" formControlName="location" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.location.errors }">
+                    <mat-hint *ngIf="submitted && f.location.errors" >
+                        <mat-hint *ngIf="f.location.errors.required">location is required</mat-hint>
+                        <mat-hint *ngIf="f.location.errors.pattern">location is using illegal characters.</mat-hint>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>Course description</mat-label>
+                    <textarea matInput placeholder="Course description" formControlName="courseDescription" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.courseDescription.errors }"></textarea>
+                    <mat-hint *ngIf="submitted && f.courseDescription.errors" >
+                        <mat-hint *ngIf="f.courseDescription.errors.required">description is required</mat-hint>
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+
+        </mat-card-content>
+        <mat-card-actions>
+
+            <button mat-button [disabled]="loading" >Save</button>
+            <mat-spinner  *ngIf="loading" [diameter]="30"></mat-spinner>
+
+        </mat-card-actions>
+    </mat-card>
+
+</form>
